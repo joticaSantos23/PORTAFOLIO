@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Sunil Kumar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================================== */
+        /* VARIABLES Y RESET */
+        /* ==================================== */
+
+        :root {
+            /* Colores ajustados: Tarjetas (1E1E1E) son ligeramente más CLARAS que el fondo (121212) para que resalten, tal como se ve en la imagen. */
+            --color-bg-main: #121212; 
+            --color-bg-card: #1E1E1E; 
+            --color-text-main: #F0F0F0;
+            --color-text-secondary: #AAAAAA;
+            --color-accent-pill: #333333;
+            --border-radius: 12px;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg-main);
+            color: var(--color-text-main);
+            font-family: var(--font-family);
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ==================================== */
+        /* MAQUETACIÓN EN GRID */
+        /* ==================================== */
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .section-card {
+            /* Fondo de la tarjeta (más claro que el fondo principal) */
+            background-color: var(--color-bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .section-card h3 {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* ==================================== */
+        /* CABECERA (AVATAR Y BIO) */
+        /* ==================================== */
+        .profile-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .profile-image-box {
+            width: 150px;
+            height: 150px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .profile-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-bio-box {
+            background-color: var(--color-bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            flex-grow: 1;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        .profile-bio-box p strong {
+            font-weight: 600;
+            color: var(--color-text-main);
+        }
+
+        /* ==================================== */
+        /* INTERESES Y DETALLES */
+        /* ==================================== */
+
+        .interests-bar {
+            background-color: var(--color-bg-card);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+        }
+        
+        .interest-pill {
+            background-color: var(--color-accent-pill);
+            color: var(--color-text-main);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+        }
+
+        /* ==================================== */
+        /* HERRAMIENTAS / ÍCONOS (Asegurando horizontalidad con Flex) */
+        /* ==================================== */
+
+        .icon-list {
+            /* Esto es lo que mantiene los iconos en horizontal */
+            display: flex; 
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tool-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Colores Adobe (simulados) */
+        .ai { background-color: #38006B; color: #FF9A00; }
+        .ps { background-color: #001E36; color: #31A8FF; }
+        .id { background-color: #380029; color: #FF408C; }
+        .xd { background-color: #000000; color: #FF61F6; }
+        .ae { background-color: #38006B; color: #9999FF; }
+        .pr { background-color: #000000; color: #EB79F6; }
+        
+        /* Banderas */
+        .flag-icon {
+            width: 48px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--color-text-secondary);
+        }
+        
+        /* ==================================== */
+        /* DETALLES DE LAS TARJETAS (Experiencia y Educación) */
+        /* ==================================== */
+
+      
+        
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            background-color: var(--color-accent-pill);
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--color-text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <header class="profile-header">
+            <div class="profile-image-box">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQVxHbXB0zrkoXkkwMYZxDic9KMagek9ls3G-Ut_jw8m81okl1y" alt="Sunil Kumar">
+            </div>
+            <div class="profile-bio-box">
+                <p>
+                    My name is <strong>Sunil Kumar</strong> self-taught logo/brand designer with 4+ years of experience creating modern, clean, and minimal brands that make a lasting impression.
+                </p>
+            </div>
+        </header>
+
+        <section class="interests-bar">
+            <h3>Interests</h3>
+            <div style="display: flex; gap: 10px;">
+                <span class="interest-pill">🎮 Gaming</span>
+                <span class="interest-pill">🎬 Film Making</span>
+                <span class="interest-pill">✈️ Travelling</span>
+            </div>
+        </section>
+
+        <main class="main-content-grid">
+
+            <div class="left-column">
+                
+                <article class="section-card job-card">
+                    <div class="title-row">
+                        <h2>Freelancer</h2>
+                        <span class="dates">2021 - now</span>
+                    </div>
+                    <p class="subtitle">Logo/Brand Designer</p>
+                    <ul>
+                        <li>Worked on diverse logo and brand identity projects.</li>
+                        <li>Collaborated with clients from multiple countries.</li>
+                        <li>Developed a versatile design skill set.</li>
+                        <li>Adapted to unique challenges and requirements.</li>
+                    </ul>
+                </article>
+
+                <section class="section-card">
+                    <h3>Design Tools</h3>
+                    <div class="icon-list">
+                        <span class="tool-icon ai">Ai</span>
+                        <span class="tool-icon ps">Ps</span>
+                        <span class="tool-icon id">Id</span>
+                        <span class="tool-icon xd">Xd</span>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <h3>Editing Tools</h3>
+                    <div class="icon-list">
+                        <span class="tool-icon ae">Ae</span>
+                        <span class="tool-icon pr">Pr</span>
+                        <span class="tool-icon" style="background-color: #000;">
+                            <img src="https://img.icons8.com/ios11/512/FFFFFF/davinci-resolve.png" alt="Resolve" style="width: 80%; height: 80%; object-fit: contain;">
+                        </span>
+                    </div>
+                </section>
+                
+                <section class="section-card">
+                    <h3>Languages</h3>
+                    <div class="icon-list">
+                        <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/250px-Flag_of_India.svg.png" alt="India">
+                        <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/2560px-Flag_of_the_United_Kingdom_%283-5%29.svg.png" alt="UK">
+                        <img class="flag-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Flag_of_the_United_States.png/1280px-Flag_of_the_United_States.png" alt="USA">
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                
+                <article class="section-card job-card">
+                    <div class="title-row">
+                        <h2>Meetzed</h2>
+                        <span class="dates">2020 - 2021</span>
+                    </div>
+                    <p class="subtitle">Graphic Designer</p>
+                    <ul>
+                        <li>Collaboration: Supported Lead Designer on projects.</li>
+                        <li>Branding: Crafted unique brand identities.</li>
+                        <li>Tools: Used Illustrator, Photoshop & InDesign.</li>
+                    </ul>
+                </article>
+
+                <article class="section-card education-card">
+                    <div class="title-row">
+                        <h2>High School</h2>
+                        <span class="dates">2017</span>
+                    </div>
+                    <p>Humanities</p>
+                    <p>Delhi Cantonment, India</p>
+                </article>
+                
+                <article class="section-card education-card">
+                    <div class="title-row">
+                        <h2>Diploma</h2>
+                        <span class="dates">2017-18</span>
+                    </div>
+                    <p>Animation and Graphic Design</p>
+                    <p>Delhi, India</p>
+                </article>
+
+                <article class="section-card education-card">
+                    <div class="title-row">
+                        <h2>Graduation</h2>
+                        <span class="dates">2017-21</span>
+                    </div>
+                    <p>Bachelor of Fine Arts</p>
+                    <p>IGNOU Delhi, India</p>
+                </article>
+            </div>
+
+        </main>
+
+        <footer>
+            <section class="portfolio-links section-card">
+                <h3>Portfolio</h3>
+                <div class="icon-list">
+                    <a href="#" class="social-icon">
+                        <span class="icon-box">B</span>Bento
+                    </a>
+                    <a href="#" class="social-icon">
+                        <span class="icon-box">Be</span>Behance
+                    </a>
+                    <a href="#" class="social-icon">
+                        <span class="icon-box">I</span>Instagram
+                    </a>
+                    <a href="#" class="social-icon">
+                        <span class="icon-box">YT</span>Youtube
+                    </a>
+                    <a href="#" class="social-icon">
+                        <span class="icon-box">D</span>Dribbble
+                    </a>
+                </div>
+            </section>
+
+            <section class="details-bar section-card">
+                <h3>Details</h3>
+                <div class="contact-info">
+                    <div class="contact-item">🗓️ 26 years</div>
+                    <div class="contact-item">📧 iamsunilfreelancer.com</div>
+                    <div class="contact-item">📞 +91 9899052055</div>
+                    <div class="contact-item">🇮🇳 India</div>
+                </div>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>
